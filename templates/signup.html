@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container h-100 d-flex justify-content-center align-items-center">
+  <h1>SignUp to Note Creater</h1>
+  <p>Your note saver for the day</p>
+
+    <div class="container">
+
+        <div class="card">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <form method="POST" class="form-horizontal">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
+              <a href="{% url 'note:login' %}" class="btn btn-default">Go login</a>
+            </div>
+          </div>
+        
+
+    </div>
+</div>
+
+</body>
+</html>

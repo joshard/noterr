@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'note:index' %}">Ur Home</a>
+        <a class="navbar-brand" href="{% url 'note:noteCreate' %}">Noter create</a>
+        <!-- <a class="navbar-brand" href="jio">Page 1</a> -->
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <!-- <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Page 1</a></li>
+          <li><a href="#">Page 2</a></li>
+          <li><a href="#">Page 3</a></li>
+        </ul> -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{% url 'note:signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'note:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'note:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<body>
+
+<div class="container h-100 d-flex justify-content-center align-items-center">
+  <h1>My Notes</h1>
+  <p><b>Your favourite note maker.</b></p>
+{% for note in Notes %}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" style="width: 50rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{note.title}} by {{note.author}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{note.created_at}}</h6>
+          <p class="card-text">{{note.content}}</p>
+        </div>
+      </div>
+    </div>
+        
+  </div>
+  <hr>
+{% endfor %}
+</div>
+
+</body>
+</html>
