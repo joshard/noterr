@@ -20,5 +20,4 @@ chmod +x scripts/*.sh
 ./scripts/instance_os_dependencies.sh
 ./scripts/python_dependencies.sh
 ./scripts/gunicorn.sh
-./scripts/nginx.sh
 ./scripts/start_app.sh
