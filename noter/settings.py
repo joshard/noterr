@@ -141,7 +141,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # AWS_ACCESS_KEY_ID = 'AKIASE5KQ2DCF66J4IB5'
-# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_SECRET_ACCESS_KEY = ''
 # AWS_STORAGE_BUCKET_NAME = 'django-project-s3'
 # AWS_S3_SIGNATURE_NAME = 's3v4'
 # AWS_S3_REGION_NAME = 'us-east-1' 
